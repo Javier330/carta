@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuestros 2 Años</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fdf6e3;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .timeline {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .hito {
+            background-color: #ffffff;
+            border: 2px solid #e0a96d;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .hito:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Nuestra Historia</h1>
+    <p>Haz clic en los momentos para recordar...</p>
+
+    <div class="timeline">
+        <div class="hito" onclick="alert('¡Aquí aparecerán nuestras fotos de este día!')">
+            <h2>El día que nos conocimos</h2>
+            <p>Una fecha que lo cambió todo.</p>
+        </div>
+    </div>
+
+</body>
+</html>
