@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #fdf6e3;
+            background-color: #fdf6e3; /* Color crema, estilo papel antiguo */
             color: #333;
             text-align: center;
             padding: 20px;
@@ -26,7 +26,48 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .hito:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
+            border-color: #c9823a;
+        }
+        
+        /* Estilos para la ventana emergente (Modal) */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7); /* Fondo oscuro semitransparente */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 85%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .foto-recuerdo {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -36,11 +77,37 @@
     <p>Haz clic en los momentos para recordar...</p>
 
     <div class="timeline">
-        <div class="hito" onclick="alert('¡Aquí aparecerán nuestras fotos de este día!')">
+        <div class="hito" onclick="abrirFotos('El día que nos conocimos', 'https://via.placeholder.com/400x300?text=Tu+Foto+Aqui', 'Una fecha que lo cambió todo. Nunca olvidaré lo nerviosos que estábamos.')">
             <h2>El día que nos conocimos</h2>
-            <p>Una fecha que lo cambió todo.</p>
+            <p>Día / Mes / Año</p>
+        </div>
+        
+        <div class="hito" onclick="abrirFotos('Nuestro primer viaje', 'https://via.placeholder.com/400x300?text=Foto+Del+Viaje', 'Qué bien lo pasamos en aquel lugar. Fue el primero de muchos.')">
+            <h2>Nuestro primer viaje juntos</h2>
+            <p>Día / Mes / Año</p>
         </div>
     </div>
 
+    <div id="miModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarFotos()">&times;</span>
+            <h2 id="titulo-modal">Título</h2>
+            <img id="imagen-modal" class="foto-recuerdo" src="" alt="Recuerdo de aniversario">
+            <p id="texto-modal">Descripción</p>
+        </div>
+    </div>
+
+    <script>
+        function abrirFotos(titulo, urlImagen, texto) {
+            document.getElementById('titulo-modal').innerText = titulo;
+            document.getElementById('imagen-modal').src = urlImagen;
+            document.getElementById('texto-modal').innerText = texto;
+            document.getElementById('miModal').style.display = "block";
+        }
+
+        function cerrarFotos() {
+            document.getElementById('miModal').style.display = "none";
+        }
+    </script>
 </body>
 </html>
